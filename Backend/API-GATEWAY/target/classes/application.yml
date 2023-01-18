@@ -1,0 +1,81 @@
+server:
+  port: 9000
+  
+spring:
+  application:
+    name: API_GATEWAY
+  cloud:
+    gate way:
+      routes:
+       #Route Mapping(cart-services)
+      - id: cart-services
+        uri: http://localhost:9000/
+        predicates:
+        - Path=/cart/v1/** 
+      #Route Mapping(cart-services)
+      - id: cart-services
+        uri: http://localhost:8001/
+        predicates:
+        - Path=/cart/v1/**   	
+      #Route Mapping(food-services1)
+      - id: food-services-Icecream
+        uri: http://localhost:8002/
+        predicates:
+        - Path=/ice/v1/** 
+      #Route Mapping(food-services2)
+      - id: food-services-Biriyani
+        uri: http://localhost:8006/
+        predicates:
+        - Path=/biryani/v1/** 
+      #Route Mapping(food-services3)
+      - id: food-services-Pizza
+        uri: http://localhost:8007/
+        predicates:
+        - Path=/pizza/v1/**
+       #Route Mapping(food-services4)
+      - id: food-services-Burger
+        uri: http://localhost:8008/
+        predicates:
+        - Path=/burger/v1/** 
+        #Route Mapping(food-services5)
+      - id: food-services-Sandwich
+        uri: http://localhost:8009/
+        predicates:
+        - Path=/sandwich/v1/**
+        #Route Mapping(food-services6)
+      - id: food-services-Rice
+        uri: http://localhost:9001/
+        predicates:
+        - Path=/rice/v1/**
+       #Route Mapping(food-services7)
+      - id: food-services-Noodels
+        uri: http://localhost:9002/
+        predicates:
+        - Path=/noodels/v1/** 
+        #Route Mapping(food-services8)
+      - id: food-services-Tiffen
+        uri: http://localhost:9003/
+        predicates:
+        - Path=/tiffen/v1/**   
+      #Route Mapping(order-services)
+      - id: order-services
+        uri: http://localhost:8003/
+        predicates:
+        - Path=/order/v1/**
+      #Route Mapping(Admin-services)
+      - id: admin-services
+        uri: http://localhost:8004/
+        predicates:
+        - Path=/admin/v1/**
+      #Route Mapping(User-Signup-services)
+      - id: User-Signup-services
+        uri: http://localhost:8005/
+        predicates:
+        - Path=/user/v1/**
+         #Route Mapping(Admin-services)
+      - id: admin-services
+        uri: http://localhost:9004/
+        predicates:
+        - Path=/users/v1/**
+     
+  
